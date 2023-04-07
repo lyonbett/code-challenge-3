@@ -9,31 +9,31 @@ function fetchFilms() {
     fetch(`${BASE_URL}/films`, {
         method: 'GET',
         headers: {
-            'content-Type': 'application/json', 
+            'content-Type': 'application/json',
         },
     })
-    .then((res) => res.json())
-    .then(renderFilms)
-    .catch((err) => {
-        console.log(err);
-    });
+        .then((res) => res.json())
+        .then(renderFilms)
+        .catch((err) => {
+            console.log(err);
+        });
 }
 
 //attach or render films on the html
 function renderFilms(films) {
-    
+
     const listFilmsDiv = document.getElementById('list-films');
 
     films.forEach((film) => {
         //create a new div element for each film
         const card = document.createElement('div');
         card.innerText = film.title;
-        card.classList.add('list-film-item') ;        
+        card.classList.add('list-film-item');
 
         //add an onclick listener
         card.addEventListener('click', () => {
             renderFilmDetails(film);
-            });
+        });
 
         //Append each new card to the listFilmsDiv
         listFilmsDiv.appendChild(card);
@@ -49,7 +49,15 @@ async function renderFilmDetails(film) {
 
     //name the elements
     const nameParagraph = document.createElement('p');
-    nameParagraph.innerText = `name: ${film.title}`;
+    nameParagraph.innerText = `Name: ${film.title}`;
+
+    //showTime element
+    const showTimeParagraph = document.createElement('p')
+    showTimeParagraph.innerHTML = `Showtime: ${film.showtime}`
+
+    //Runtime element
+    const runTimeParagraph = document.createElement('p')
+    runTimeParagraph.innerHTML = `Runtime: ${film.runtime}`
 
     //image element
     const imageElement = document.createElement('img');
@@ -68,24 +76,26 @@ async function renderFilmDetails(film) {
 
     addticketsButton.addEventListener('submit', (e) => {
         e.preventDefault()
-        ticket_value =  document.getElementById('ticket_number').value
+        ticket_value = document.getElementById('ticket_number').value
         remaining_tickets = film.capacity - film.tickets_sold
-        if (ticket_value > remaining_tickets){
+        if (ticket_value > remaining_tickets) {
             alert("Not enough")
-        }else{
+        } else {
             answer = remaining_tickets - ticket_value
             const newTicket = (remaining_tickets -= 1);
             ticketsParagraph.innerText = `tickets: ${answer}`;
         }
 
-        
-        });
-    
-    
+
+    });
+
+
 
     //attach all the elements
     filmDetailsDiv.appendChild(nameParagraph);
-    filmDetailsDiv.appendChild(imageElement);  
+    filmDetailsDiv.appendChild(showTimeParagraph);
+    filmDetailsDiv.appendChild(runTimeParagraph);
+    filmDetailsDiv.appendChild(imageElement);
     filmDetailsDiv.appendChild(ticketsParagraph);
     filmDetailsDiv.appendChild(addticketsButton);
 }
