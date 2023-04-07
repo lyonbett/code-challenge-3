@@ -1,0 +1,31 @@
+#list-films {
+    padding: 5px;
+    background-color: blue;
+}
+#top_heading{
+    text-align: center;
+}
+
+.list-film-item {
+    width: 350px;
+    height:30px;
+    border: 1px solid #000;
+    margin: 5px;
+    margin-left:40%;
+    background-color: gray;
+}
+
+.film-image {
+max-width: 300;
+max-height: fit-content;
+}
+
+#film-details{
+width: 70%;
+margin-left: auto;
+margin-right: auto;
+padding: 10px;
+border: 1px solid gray;
+border-radius: 10px;
+margin-top: 5px
+}

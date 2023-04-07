@@ -1,0 +1,11 @@
+{
+  "name": "code-challenge-week-3",
+  "version": "1.0.0",
+  "description": "<html lang=\"en\"> <head>     <meta charset=\"UTF-8\">     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">     <script defer src=\"./index.js\"></script>     <title>lyons project</title>     <link rel=\"stylesheet\" href=\"./index.css\" /> </head> <body>      <header id=\"menu\">         <h1>welcome to cutest animal project on the <strong>flatacuties</strong> app</h1>     </header>     <div class=\"container\">         <form id=\"animal-form\">             <label for=\"name\">Name</label>             <input type=\"text\" id=\"name\" name=\"name\" />             <label for=\"name\">Image URL</label>             <input type=\"text\" id=\"image_url\" name=\"image_url\" />         </form>",
+  "main": "index.js",
+  "scripts": {
+    "db":"json-server --watch assets/db/db.json"
+  },
+  "author": "Lyon Bett",
+  "license": "ISC"
+}
