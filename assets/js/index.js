@@ -49,7 +49,7 @@ async function renderFilmDetails(film) {
 
     //name the elements
     const nameParagraph = document.createElement('p');
-    nameParagraph.innerText = `Name: ${film.title}`;
+    nameParagraph.innerText = `Tittle: ${film.title}`;
 
     //showTime element
     const showTimeParagraph = document.createElement('p')
